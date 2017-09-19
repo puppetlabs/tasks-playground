@@ -11,4 +11,10 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y puppet-agent="$PUPPET_AGENT_VERSION"-1"$UBUNTU_CODENAME" && \
     apt-get remove --purge -y wget
 
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y lsof software-properties-common python-software-properties && \ 
+    add-apt-repository ppa:duggan/bats && \
+    apt-get update && \
+    apt-get install --no-install-recommends -y bats
+
 ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH
