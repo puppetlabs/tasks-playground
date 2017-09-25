@@ -6,7 +6,7 @@ Save the following as `modules/sample/tasks/init.py`.
 
 Note that the `sample` part is the name of our module. We could have used anything here but note it's used to build out the user interface as we'll see in a moment.
 
-```
+```python
 #!/usr/bin/env python
 import os
 print os.environ['PT_message']
@@ -37,7 +37,7 @@ Pex is a packaging format for Python which packages up our code along with any r
 
 To create a Pex package we need to have a `setup.py` file. A simple example might look like the following:
 
-```
+```python
 from distutils.core import setup
 
 setup(
@@ -51,7 +51,7 @@ All of the code samples needed to run this example accompany this README.
 
 Next we need to write the code for our task. We'll save that to `samplepkg/main.py`.
 
-```
+```python
 #!/usr/bin/env python
 
 import os
@@ -84,4 +84,4 @@ We can now run our task. Note the `::samplepkg` part of the command below. `::` 
 bolt task run sample::samplepkg message=color --nodes <nodes> --modules ./modules
 ```
 
-This should print out the message in red rather than the default terminal color. Obviosly printing output in a different color is just a simple example of the kinds of things you can do. This approach makes it trivial to use the huge Python ecosystem of libraries to help write tasks to automate your infrastructure.
+This should print out the message in red rather than the default terminal color. Obviously printing output in a different color is just a simple example of the kinds of things you can do. This approach makes it trivial to use the huge Python ecosystem of libraries to help write tasks to automate your infrastructure.
