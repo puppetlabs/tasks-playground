@@ -9,28 +9,31 @@ LABEL org.label-schema.vendor="Puppet" \
       org.label-schema.schema-version="1.0" \
       com.puppet.dockerfile="/Dockerfile"
 
-RUN addgroup -S bolt && adduser -S -g bolt bolt
-
 RUN apk add --update --no-cache \
       build-base \
       libffi-dev \
       ca-certificates \
       ruby \
+      ruby-io-console \
       ruby-irb \
       ruby-rdoc \
       ruby-dev \
       git && \
       gem install bundler
 
-USER bolt
+RUN addgroup -S bolt && adduser -S -g bolt bolt
 
-# Note that this requires https://github.com/moby/moby/pull/34263 which is
-# only available since the 17.09 edge release of Moby
-COPY --chown=bolt:bolt . /usr/src/bolt
+# As of https://github.com/moby/moby/pull/34263 Docker supports
+# setting ownership on Copy, but it's only available since the
+# 17.09 edge release of Moby. We'll wait until it's in the
+# main release
+# COPY --chown=bolt:bolt . /usr/src/bolt
+COPY . /usr/src/bolt
+RUN chown bolt:bolt /usr/src/bolt
 WORKDIR /usr/src/bolt
 
-# Work-around for BOLT-80
-RUN echo "gem 'io-console'" > Gemfile.local
+USER bolt
+
 RUN bundle install --path .bundle
 
 ENTRYPOINT ["bundle", "exec", "bolt"]
