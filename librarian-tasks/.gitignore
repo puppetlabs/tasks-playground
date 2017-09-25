@@ -1,0 +1,4 @@
+.tmp/
+modules/
+vendor
+Gemfile.lock

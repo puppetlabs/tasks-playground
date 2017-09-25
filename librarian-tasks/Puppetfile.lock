@@ -1,0 +1,18 @@
+GIT
+  remote: https://github.com/puppetlabs/puppetlabs-package.git
+  ref: master
+  sha: b68ea3d5003ff21406014824cf1398a1817a330a
+  specs:
+    puppetlabs-package (0.1.1)
+
+GIT
+  remote: https://github.com/puppetlabs/puppetlabs-service.git
+  ref: master
+  sha: 7abfd859a0870a8b3be0926f82808025499ac38d
+  specs:
+    puppetlabs-service (0.1.1)
+
+DEPENDENCIES
+  puppetlabs-package (>= 0)
+  puppetlabs-service (>= 0)
+
