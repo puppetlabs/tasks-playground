@@ -4,7 +4,7 @@ Bolt can be used to upload and run arbitrary scripts on remote nodes. If those n
 
 First lets create a simple manifest. Note the shebang line of `#!/opt/puppetlabs/puppet/bin/puppet apply`. This means when the script is executed it should be run with `puppet apply`. The manifest itself it just a simple Puppet example of ensuring a file is present with some specific content.
 
-```
+```puppet
 #!/opt/puppetlabs/puppet/bin/puppet apply
 
 file { '/tmp/bolt':
