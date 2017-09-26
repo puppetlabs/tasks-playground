@@ -17,4 +17,7 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install --no-install-recommends -y bats
 
+RUN apt-get update && \
+    apt-get install php5 -y 
+
 ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH

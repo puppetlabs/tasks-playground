@@ -1,0 +1,5 @@
+{
+    "main": "init.php",
+    "output": "example.phar",
+    "stub": true
+}
