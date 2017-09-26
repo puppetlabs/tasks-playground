@@ -1,6 +1,6 @@
 # Writing Puppet Tasks with Node.js
 
-[Node.js](https://nodejs.org) provides a runtime for Javascript, and makes a nice environment for writing Puppet Taskswith. One approach to using Node is to ensure the runtime is already installed on on of the nodes you want to run tasks on. If that's the case then the simplest task would be a single `.js` file.
+[Node.js](https://nodejs.org) provides a runtime for Javascript, and makes a nice environment for writing Puppet Tasks with. One approach to using Node is to ensure the runtime is already installed on on of the nodes you want to run tasks on. If that's the case then the simplest task would be a single `.js` file.
 
 Save the following as `modules/sample/tasks/init.js`:
 
