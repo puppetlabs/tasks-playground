@@ -45,7 +45,7 @@ Ran on 1 node in 1.19 seconds
 
 ## Shellshock
 
-We might also want to use scripts written by third parties, for instance scripts that check nodes for known vulerabilities. Lets use [bashcheck](https://raw.githubusercontent.com/hannob/bashcheck/master/bashcheck) as an example. It checks nodes for the [ShellShock](https://en.wikipedia.org/wiki/Shellshock_(software_bug) vulnerability.
+We might also want to use scripts written by third parties, for instance scripts that check nodes for known vulerabilities. Lets use [bashcheck](https://raw.githubusercontent.com/hannob/bashcheck/master/bashcheck) as an example. It checks nodes for the [ShellShock](https://en.wikipedia.org/wiki/Shellshock_(software_bug)) vulnerability.
 
 ```
 bolt script run bashcheck -n <nodes>
