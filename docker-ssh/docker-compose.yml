@@ -4,3 +4,5 @@ services:
     build: ssh
   ssh:
     image: rastasheep/ubuntu-sshd
+  ssh-osquery:
+    build: osquery
