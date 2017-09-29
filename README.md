@@ -1,4 +1,4 @@
-# Bolt Playground
+# Tasks Playground
 
 A series of experiments, examples and general play with `bolt`.
 
