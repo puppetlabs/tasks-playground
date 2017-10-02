@@ -1,0 +1,24 @@
+{
+  "summary": "Manage and inspect the state of packages",
+  "description": "Manage and inspect the state of packages",
+  "supports_noop": true,
+  "input_method": "stdin",
+  "parameters": {
+    "action": {
+      "description": "The operation (install, status, uninstall and upgrade) to perform on the package",
+      "type": "Enum[install, status, uninstall, upgrade]"
+    },
+    "package": {
+      "description": "The name of the package to be manipulated",
+      "type": "String[1]"
+    },
+    "version": {
+      "description": "Version numbers must match the full version to install, including release if the provider uses a release moniker. Ranges or semver patterns are not accepted except for the gem package provider. For example, to install the bash package from the rpm bash-4.1.2-29.el6.x86_64.rpm, use the string '4.1.2-29.el6'.",
+      "type": "Optional[String[1]]"
+    },
+    "provider": {
+      "description": "The provider to use to manage or inspect the package, defaults to the system package manager",
+      "type": "Optional[String[1]]"
+    }
+  }
+}

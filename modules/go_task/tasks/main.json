@@ -1,0 +1,8 @@
+{"description": "An example task written in go"<
+  "parameters": {
+    "message": {
+      "description": "The message to print",
+      "type": "String"
+    }
+  }
+}
