@@ -1,0 +1,24 @@
+{
+  "summary": "Inspect puppet agent configuration settings",
+  "description": "Inspect puppet agent configuration settings",
+  "supports_noop": true,
+  "input_method": "stdin",
+  "parameters": {
+    "action": {
+      "description": "The operation (get, set) to perform on the configuration setting",
+      "type": "Enum[get, set]"
+    },
+    "section": {
+      "description": "The section of the config file. Defaults to main",
+      "type": "Optional[String[1]]"
+    },
+    "setting": {
+      "description": "The name of the config entry to set/get",
+      "type": "String[1]"
+    },
+     "value": {
+      "description": "The value you are setting. Only required for set",
+      "type": "Optional[String[1]]"
+    }
+  }
+}

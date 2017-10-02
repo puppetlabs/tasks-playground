@@ -1,0 +1,20 @@
+{
+  "summary": "Manage and inspect the state of services",
+  "description": "Manage and inspect the state of services",
+  "supports_noop": true,
+  "input_method": "stdin",
+  "parameters": {
+    "action": {
+      "description": "The operation (start, stop, restart, enable, disable, status) to perform on the service",
+      "type": "Enum[start, stop, restart, enable, disable, status]"
+    },
+    "service": {
+      "description": "The name of the service to operate on.",
+      "type": "String[1]"
+    },
+    "provider": {
+      "description": "The provider to use to manage or inspect the service, defaults to the system service manager",
+      "type": "Optional[String[1]]"
+    }
+  }
+}
