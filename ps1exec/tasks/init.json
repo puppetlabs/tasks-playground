@@ -1,0 +1,9 @@
+{
+  "description": "Execute a PowerShell command",
+  "parameters": {
+    "command": {
+      "description": "The PowerShell command",
+      "type": "String"
+    }
+  }
+}

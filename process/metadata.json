@@ -1,0 +1,13 @@
+{
+  "name": "michaelsmith-process",
+  "version": "0.1.0",
+  "author": "michaelsmith",
+  "summary": "Tasks for querying process info",
+  "license": "Apache-2.0",
+  "source": "https://github.com/puppetlabs/puppetlabs-process",
+  "project_page": "https://github.com/puppetlabs/puppetlabs-process",
+  "issues_url": "https://github.com/puppetlabs/puppetlabs-process/issues",
+  "dependencies": [],
+  "data_provider": null
+}
+

@@ -1,0 +1,24 @@
+{
+  "input_method": "stdin",
+  "description": "Kill a running task",
+  "parameters": {
+    "job_id": {
+      "description": "The job_id of the task to kill",
+      "type": "String"
+    },
+    "signal": {
+      "description": "The signal to send to the task process.(default: kill)",
+      "type": "Optional[Enum[kill, term]]"
+    },
+    "timeout": {
+      "description": "How many seconds to poll for",
+      "type": "Optional[Integer]"
+    }
+  },
+  "output": {
+    "status": {
+      "description": "The status of the task process",
+      "type": "Enum[running, finished, killed]"
+    }
+  }
+}

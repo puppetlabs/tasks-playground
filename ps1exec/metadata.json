@@ -1,0 +1,13 @@
+{
+  "name": "michaelsmith-powershell",
+  "version": "0.1.0",
+  "author": "michaelsmith",
+  "summary": "Tasks for running a PowerShell command",
+  "license": "Apache-2.0",
+  "source": "https://github.com/puppetlabs/puppetlabs-powershell",
+  "project_page": "https://github.com/puppetlabs/puppetlabs-powershell",
+  "issues_url": "https://github.com/puppetlabs/puppetlabs-powershell/issues",
+  "dependencies": [],
+  "data_provider": null
+}
+
