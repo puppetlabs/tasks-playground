@@ -1,0 +1,9 @@
+{
+  "description": "Query running processes",
+  "parameters": {
+    "name": {
+      "description": "A pattern to match against process names",
+      "type": "Optional[String]"
+    }
+  }
+}

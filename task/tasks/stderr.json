@@ -1,0 +1,16 @@
+{
+  "input_method": "stdin",
+  "description": "Retrieve stderr from a task",
+  "parameters": {
+    "job_id": {
+      "description": "The job_id of the task to kill",
+      "type": "String"
+    }
+  },
+  "output": {
+    "stderr": {
+      "description": "The output of stderr",
+      "type": "String"
+    }
+  }
+}
