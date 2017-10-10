@@ -26,4 +26,7 @@ Local:
 
     $ bolt [TAB]
     $ bundle exec bolt [TAB]
+    $ bolt -[TAB]
+    $ bolt --nodes [TAB]
+    $ bolt --nodes node1,[TAB]
 
