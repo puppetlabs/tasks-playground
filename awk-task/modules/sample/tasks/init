@@ -1,0 +1,5 @@
+#!/usr/bin/awk -f
+
+{
+  printf "%s\n", ENVIRON["PT_message"]
+}
