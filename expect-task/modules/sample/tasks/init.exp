@@ -1,0 +1,12 @@
+#!/usr/bin/expect
+
+# Don't output commands as they run
+log_user 0
+
+# Get hostname and trim the trailing newline
+spawn hostname
+expect {\$}
+set hostname [string trimright $expect_out(buffer)]
+
+# output the message
+puts "$hostname got passed the message: $env(PT_message)"
