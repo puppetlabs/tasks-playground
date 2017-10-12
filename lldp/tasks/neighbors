@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# Find Switch/Neighbor Information
+
+# Paths
+lldpad=/usr/sbin/lldpad
+lldpcli=/usr/sbin/lldpcli
+lldptool=/usr/sbin/lldptool
+
+
+if [[ -a $lldpcli ]]; then
+  $lldpcli show neighbors | grep "Interface\|SysName"  | awk {'print $2'} | sed 'N;s/\n/ /' | sed 's/, /=/' | sed 'N;s/\n/ /'
+elif [[ -a /usr/sbin/lldptool ]]; then
+  # Run daemon
+  $lldpad -d
+
+  # Configure interfaces
+  for i in `ls /sys/class/net/ | grep 'eth\|ens\|eno'`; do
+    $lldptool set-lldp -i $i adminStatus=rxtx &>/dev/null
+    $lldptool -T -i $i -V  sysName enableTx=yes &>/dev/null
+    $lldptool -T -i $i -V  portDesc enableTx=yes &>/dev/null
+    $lldptool -T -i $i -V  sysDesc enableTx=yes &>/dev/null
+    $lldptool -T -i $i -V sysCap enableTx=yes &>/dev/null
+    $lldptool -T -i $i -V mngAddr enableTx=yes &>/dev/null
+  done
+
+  # Get neighbors
+  for i in `ls /sys/class/net/ | grep 'eth\|ens\|eno'`; do
+    upswitch=$($lldptool -t -n -i $i | sed -n '/System Name/{n;p;}' | sed 's/\s//')
+    if [[ -n $upswitch ]]; then
+      printf "$i=$upswitch "
+    else
+      printf "No neighbor found on $i"
+    fi
+  done
+else
+   echo "No tool"
+   exit 1
+fi
