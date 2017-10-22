@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# See if lldp prereqs are installed. In not, see if we can install them
+
+# Paths
+lldpad=/usr/sbin/lldpad
+lldpcli=/usr/sbin/lldpcli
+lldptool=/usr/sbin/lldptool
+YUM_CMD=$(which yum 2>/dev/null)
+APT_CMD=$(which apt-get 2>/dev/null)
+
+if [[ ! -z $YUM_CMD ]]; then
+  if [[ -f $lldpad ]]; then
+    printf "lldpad is installed\n"
+  else
+    yum install -y lldpad
+  fi
+elif [[ ! -z $APT_CMD ]]; then
+  if [[ -f lldpcli ]]; then
+    printf "lldpcli is installed\n"
+  else
+    apt-get install -y lldpcli
+  fi
+else
+  printf "No suitable package manager found\n"
+  exit 1
+fi
