@@ -1,0 +1,52 @@
+_bolt()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+    if [[ "${cur}" == -* ]]; then
+        local bolt_options="--nodes --user --password --concurrency --modules --params --tty --no-tty --help --verbose --debug --version"
+        COMPREPLY=( $(compgen -W "${bolt_options}" -- ${cur}) )
+        return 0
+    fi
+
+    #if [[ "${prev}" == bolt ]]; then
+    #    local bolt_cmds="command script task plan file"
+    #    COMPREPLY=( $(compgen -W "${bolt_cmds}" -- ${cur}) )
+    #    return 0
+    #fi
+
+    case "${prev}" in
+        "bolt")
+            local bolt_cmds="command script task plan file"
+            COMPREPLY=( $(compgen -W "${bolt_cmds}" -- ${cur}) )
+            return 0
+            ;;
+        "file")
+            COMPREPLY=( $(compgen -W "upload" -- ${cur}) )
+            return 0
+            ;;
+        "command"|"script"|"task"|"plan")
+            COMPREPLY=( $(compgen -W "run" -- ${cur}) )
+            return 0
+            ;;
+    esac
+
+    if [[ "${prev}" == --nodes ]]; then
+        hosts=" "$(grep '^Host' ~/.ssh/config | grep -v '[?*]' | cut -d ' ' -f 2-)
+        #hosts=$(grep '^Host' ~/.ssh/config ~/.ssh/config.d/* | grep -v '[?*]' | cut -d ' ' -f 2-)
+        if [[ "${cur}" == *,* ]]; then
+            local realcur prefix
+            realcur=${cur##*,}
+            prefix=${cur%,*}
+            COMPREPLY=( $(compgen -W "$hosts" -P "${prefix}," -- ${realcur}) )
+        else
+            COMPREPLY=( $(compgen -W "$hosts" -- ${cur}) )
+        fi
+    fi
+
+    return 0
+}
+complete -F _bolt bolt
+complete -F _bolt bundle exec bolt
